@@ -1,866 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AEL Prompt Framework™ - 1000+ AI Prompts Library</title>
-    <meta
-      name="description"
-      content="Professional modular prompt framework with 1000+ AI prompts for generating UI components and layouts. Built by Ayman Elmasry - AEL Digital Studio."
-    />
-    <meta
-      name="keywords"
-      content="AI prompts, UI components, framework, AEL, Ayman Elmasry, web development, 1000 prompts"
-    />
-    <meta name="author" content="Ayman Elmasry - AEL Digital Studio" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"
-    />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AEL Prompt Framework™ - 1000+ AI Prompts Library</title>
+<meta name="description" content="Professional modular prompt framework with 1000+ AI prompts for generating UI components and layouts. Built by Ayman Elmasry - AEL Digital Studio." />
+<meta name="keywords" content="AI prompts, UI components, framework, AEL, Ayman Elmasry, web development, 1000 prompts" />
+<meta name="author" content="Ayman Elmasry - AEL Digital Studio" />
+<link rel="icon" type="image/svg+xml" href="ael-logo.svg" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="ael_prompts_library.css">
+</head>
+<body>
 
-    <style>
-      *{margin:0;padding:0;box-sizing:border-box}
-      body{background:radial-gradient(circle at 20% 30%,#030712,#000);font-family:'Inter','system-ui',sans-serif;color:#eef2ff;line-height:1.5;overflow-x:hidden}
-      ::-webkit-scrollbar{width:5px}
-      ::-webkit-scrollbar-track{background:#0a0f1a}
-      ::-webkit-scrollbar-thumb{background:#0074FF;border-radius:4px}
+<nav class="navbar">
+  <div class="container nav-container">
+    <a href="#" class="nav-brand">
+      <svg class="brand-logo" viewBox="0 0 226.77 226.77">
+        <path fill="currentColor" d="m97.19,48.59v16.2h-32.4v-16.2c0-8.94-7.25-16.2-16.2-16.2s-16.2,7.25-16.2,16.2v16.2H0v-16.2c0-5.68.98-11.13,2.76-16.2C9.44,13.52,27.44,0,48.59,0s39.16,13.52,45.83,32.4c1.79,5.07,2.76,10.52,2.76,16.2Z"/>
+        <rect y="97.19" width="32.4" height="32.4"/><rect x="64.79" y="97.19" width="32.4" height="32.4"/>
+        <rect x="64.79" y="129.58" width="32.4" height="32.4"/><rect y="129.58" width="32.4" height="32.4"/>
+        <rect x="129.58" y="97.19" width="32.4" height="32.4"/><rect x="161.98" y="129.58" width="32.4" height="32.4"/>
+        <rect x="194.38" y="129.58" width="32.4" height="32.4"/><rect x="129.58" y="129.58" width="32.4" height="32.4"/>
+        <rect x="129.58" width="32.4" height="32.4"/><rect x="161.98" width="32.4" height="32.4"/>
+        <rect x="194.38" width="32.4" height="32.4"/><rect x="129.58" y="32.4" width="32.4" height="32.4"/>
+        <rect y="194.38" width="32.4" height="32.4"/><rect x="32.4" y="194.38" width="32.4" height="32.4"/>
+        <rect x="64.79" y="194.38" width="32.4" height="32.4"/><rect x="97.19" y="194.38" width="32.4" height="32.4"/>
+        <rect x="129.58" y="194.38" width="32.4" height="32.4"/><rect x="161.98" y="194.38" width="32.4" height="32.4"/>
+        <rect x="194.38" y="194.38" width="32.4" height="32.4"/>
+      </svg>
+      AEL Prompt Framework™
+    </a>
+    <ul class="nav-menu">
+      <li><a href="#features" class="nav-link">Features</a></li>
+      <li><a href="#library" class="nav-link">1000 Prompts</a></li>
+      <li><a href="#search" class="nav-link">Search</a></li>
+      <li><a href="#download" class="nav-link">Download</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#library" class="btn btn-primary">Explore Prompts</a>
+    </div>
+  </div>
+</nav>
 
-      .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+<div class="doc-tabs" id="docTabNav">
+  <button class="doc-tab active" data-tab="overview"><i class="fas fa-home"></i> Overview</button>
+  <button class="doc-tab" data-tab="library"><i class="fas fa-layer-group"></i> Library</button>
+  <button class="doc-tab" data-tab="features"><i class="fas fa-star"></i> Features</button>
+  <button class="doc-tab" data-tab="engine"><i class="fas fa-cogs"></i> Generation</button>
+  <button class="doc-tab" data-tab="export"><i class="fas fa-download"></i> Export</button>
+  <button class="doc-tab" data-tab="about"><i class="fas fa-info-circle"></i> About</button>
+</div>
 
-      .navbar{background:rgba(3,7,18,.85);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,116,255,.3);position:fixed;width:100%;top:0;z-index:1000}
-      .nav-container{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
-      .nav-brand{display:flex;align-items:center;gap:12px;font-size:1.25rem;font-weight:700;color:#fff;text-decoration:none}
-      .brand-logo{width:32px;height:32px;fill:#0074FF;filter:drop-shadow(0 0 4px rgba(0,116,255,.4))}
-      .nav-menu{display:flex;list-style:none;gap:2rem}
-      .nav-link{text-decoration:none;color:#8db7ff;font-weight:500;transition:.2s}
-      .nav-link:hover{color:#fff}
+<div class="doc-pane active" id="pane-overview">
+  <section class="hero" style="padding-top:100px">
+    <div class="container">
+      <h1>1000+ AI Prompts Library</h1>
+      <p>Professional modular prompt framework with comprehensive collection of 1000+ AI prompts for generating modern UI components and layouts</p>
+      <div style="margin-top: 2rem">
+        <a href="#library" class="btn btn-primary">Explore All Prompts</a>
+        <a href="#download" class="btn btn-secondary">Download Library</a>
+      </div>
+    </div>
+  </section>
 
-      .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border:none;border-radius:60px;text-decoration:none;font-weight:600;font-size:.875rem;cursor:pointer;transition:.2s;text-align:center;font-family:'Inter'}
-      .btn-primary{background:#0074FF;color:#fff;box-shadow:0 4px 15px rgba(0,116,255,.3)}
-      .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,116,255,.4)}
-      .btn-secondary{background:rgba(10,20,35,.7);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#bdd3ff;border:1px solid rgba(0,116,255,.4)}
-      .btn-secondary:hover{border-color:#0074FF;color:#fff}
+  <div class="project-preview">
+    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" style="background:radial-gradient(circle at 30% 40%,#0a1628,#000)">
+      <rect x="0" y="0" width="700" height="320" fill="none"/>
+      <rect x="0" y="0" width="700" height="50" fill="rgba(3,7,18,.85)"/>
+      <text x="25" y="32" fill="#fff" font-family="monospace" font-size="14" font-weight="bold">AEL Prompt Framework</text>
+      <text x="530" y="32" fill="#0074FF" font-family="monospace" font-size="12">Explore Prompts</text>
 
-      .hero{background:radial-gradient(circle at 30% 40%,#0a1628,#000);padding:160px 0 100px;text-align:center;position:relative}
-      .hero h1{font-size:3.5rem;font-weight:800;margin-bottom:1.5rem;background:linear-gradient(135deg,#fff,#0074FF);-webkit-background-clip:text;background-clip:text;color:transparent}
-      .hero p{color:#9ab3e6;font-size:1.1rem;max-width:700px;margin:0 auto}
+      <text x="350" y="100" fill="#fff" font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle">1000+ AI Prompts Library</text>
+      <text x="350" y="125" fill="#9ab3e6" font-family="monospace" font-size="11" text-anchor="middle">Professional modular prompt framework for modern development</text>
 
-      .features{padding:100px 0}
-      .section-title{text-align:center;margin-bottom:4rem}
-      .section-title h2{font-size:2.5rem;font-weight:700;margin-bottom:1rem}
-      .section-title p{color:#8db7ff;font-size:.95rem}
+      <rect x="100" y="145" width="500" height="40" rx="12" fill="rgba(1,5,14,.7)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+      <text x="120" y="170" fill="#4a5a7a" font-family="monospace" font-size="12">Search across all 1000 prompts...</text>
 
-      .glass{background:rgba(5,12,24,.7);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:1.25rem;border:1px solid rgba(0,116,255,.4);padding:2rem;margin-bottom:1.5rem;box-shadow:0 8px 32px rgba(0,0,0,.3)}
+      <rect x="50" y="205" width="140" height="55" rx="10" fill="rgba(5,12,24,.6)" stroke="rgba(0,116,255,.25)" stroke-width="1"/>
+      <text x="120" y="230" fill="#fff" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">1000+</text>
+      <text x="120" y="248" fill="#8db7ff" font-family="monospace" font-size="10" text-anchor="middle">Total Prompts</text>
 
-      .prompts-library{padding:100px 0}
-      .search-container{margin-bottom:3rem}
-      .search-box{background:rgba(1,5,14,.7);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.1);border-radius:1rem;padding:1rem 1.5rem;color:#fff;font-size:1rem;width:100%;transition:.2s}
-      .search-box:focus{outline:none;border-color:#0074FF;box-shadow:0 0 0 3px rgba(0,116,255,.15)}
+      <rect x="210" y="205" width="140" height="55" rx="10" fill="rgba(5,12,24,.6)" stroke="rgba(0,116,255,.25)" stroke-width="1"/>
+      <text x="280" y="230" fill="#fff" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">10</text>
+      <text x="280" y="248" fill="#8db7ff" font-family="monospace" font-size="10" text-anchor="middle">Batches</text>
 
-      .batch-container{margin-bottom:3rem}
-      .batch-header{background:linear-gradient(135deg,#0074FF,#005fcc);padding:1.25rem 1.5rem;border-radius:1rem;margin-bottom:1.25rem;cursor:pointer;transition:.2s;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 15px rgba(0,116,255,.2)}
-      .batch-header:hover{transform:translateX(8px);box-shadow:0 6px 20px rgba(0,116,255,.3)}
-      .batch-header h3{color:#fff;font-size:1rem}
+      <rect x="370" y="205" width="140" height="55" rx="10" fill="rgba(5,12,24,.6)" stroke="rgba(0,116,255,.25)" stroke-width="1"/>
+      <text x="440" y="230" fill="#fff" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">12</text>
+      <text x="440" y="248" fill="#8db7ff" font-family="monospace" font-size="10" text-anchor="middle">Categories</text>
 
-      .prompts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-bottom:2rem}
-      .prompt-item{background:rgba(5,12,24,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(0,116,255,.25);border-radius:1rem;padding:1rem;cursor:pointer;transition:.2s;position:relative;min-height:140px;display:flex;flex-direction:column;justify-content:space-between}
-      .prompt-item:hover{border-color:#0074FF;transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,116,255,.15)}
+      <rect x="530" y="205" width="140" height="55" rx="10" fill="rgba(5,12,24,.6)" stroke="rgba(0,116,255,.25)" stroke-width="1"/>
+      <rect x="600" y="218" width="20" height="20" rx="4" fill="#ffd700"/>
+      <text x="600" y="248" fill="#8db7ff" font-family="monospace" font-size="10" text-anchor="middle">Ultra-Lock</text>
 
-      .prompt-item.locked{position:relative;cursor:pointer;user-select:none;opacity:.7}
-      .prompt-item.locked:hover{transform:none;border-color:rgba(0,116,255,.15)}
-      .lock-overlay{position:absolute;inset:0;background:rgba(3,7,18,.8);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:1rem;z-index:10;color:#8db7ff}
-      .lock-icon{font-size:1.5rem;margin-bottom:.5rem}
-      .lock-text{font-size:.875rem;text-align:center;padding:0 1rem}
+      <rect x="100" y="275" width="500" height="30" rx="8" fill="rgba(0,116,255,.2)" stroke="#0074FF" stroke-width="1"/>
+      <text x="350" y="295" fill="#0074FF" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">AEL Prompt IP System — All prompts protected</text>
+    </svg>
+  </div>
+</div>
 
-      .prompt-number{color:#0074FF;font-weight:600;font-size:.875rem;margin-bottom:.5rem}
-      .prompt-text{color:#eef2ff;font-size:.875rem;line-height:1.4;flex-grow:1}
-      .prompt-tags{margin-top:.5rem;font-size:.75rem;color:#8db7ff}
-
-      .footer{background:rgba(3,7,18,.5);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid rgba(0,116,255,.3);padding:3rem 0;text-align:center}
-      .ip-notice{background:rgba(5,12,24,.7);border-radius:1rem;border-left:4px solid #0074FF;margin-top:2rem;padding:1rem 1.5rem;font-size:.85rem;color:#94a3b8}
-
-      .download-options{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;justify-content:center}
-
-      .toast{position:fixed;top:100px;right:20px;background:rgba(0,255,136,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#000;padding:12px 20px;border-radius:40px;box-shadow:0 8px 20px rgba(0,0,0,.3);transform:translateX(400px);transition:transform .3s ease;z-index:10000;font-weight:600}
-      .toast.show{transform:translateX(0)}
-      .toast.error{background:rgba(239,68,68,.9)}
-
-      .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.5rem}
-      .stat-item{background:rgba(5,12,24,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(0,116,255,.25);border-radius:1rem;padding:1.5rem;text-align:center}
-      .stat-number{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#fff,#0074FF);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
-      .stat-label{color:#8db7ff;font-size:.875rem}
-
-      .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);z-index:10000;align-items:center;justify-content:center}
-      .modal.show{display:flex}
-      .modal-content{background:rgba(5,12,24,.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-radius:1.5rem;padding:2rem;max-width:500px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.5);border:1px solid rgba(0,116,255,.4)}
-      .modal-title{font-size:1.5rem;font-weight:600;margin-bottom:.5rem}
-      .modal-body{margin-bottom:2rem;color:#9ab3e6;line-height:1.5}
-      .modal-footer{display:flex;justify-content:flex-end;gap:1rem}
-      .unlock-code-input{width:100%;background:rgba(1,5,14,.7);border:1px solid rgba(255,255,255,.1);border-radius:.75rem;padding:12px 16px;color:#fff;font-size:1rem;margin-bottom:1rem}
-      .unlock-code-input:focus{outline:none;border-color:#0074FF;box-shadow:0 0 0 3px rgba(0,116,255,.15)}
-      .contact-info{background:rgba(0,0,0,.3);border-radius:.75rem;padding:1rem;border-left:3px solid #ffd700;font-size:.875rem;color:#94a3b8}
-      .contact-info strong{color:#ffd700}
-
-      @media(max-width:768px){.nav-menu{display:none}.hero h1{font-size:2.5rem}.prompts-grid{grid-template-columns:1fr}.download-options{flex-direction:column}}
-    </style>
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="container nav-container">
-        <a href="#" class="nav-brand">
-          <svg class="brand-logo" viewBox="0 0 226.77 226.77">
-            <path
-              fill="currentColor"
-              d="m97.19,48.59v16.2h-32.4v-16.2c0-8.94-7.25-16.2-16.2-16.2s-16.2,7.25-16.2,16.2v16.2H0v-16.2c0-5.68.98-11.13,2.76-16.2C9.44,13.52,27.44,0,48.59,0s39.16,13.52,45.83,32.4c1.79,5.07,2.76,10.52,2.76,16.2Z"
-            ></path>
-            <rect y="97.19" width="32.4" height="32.4"></rect>
-            <rect x="64.79" y="97.19" width="32.4" height="32.4"></rect>
-            <rect x="64.79" y="129.58" width="32.4" height="32.4"></rect>
-            <rect y="129.58" width="32.4" height="32.4"></rect>
-            <rect x="129.58" y="97.19" width="32.4" height="32.4"></rect>
-            <rect x="161.98" y="129.58" width="32.4" height="32.4"></rect>
-            <rect x="194.38" y="129.58" width="32.4" height="32.4"></rect>
-            <rect x="129.58" y="129.58" width="32.4" height="32.4"></rect>
-            <rect x="129.58" width="32.4" height="32.4"></rect>
-            <rect x="161.98" width="32.4" height="32.4"></rect>
-            <rect x="194.38" width="32.4" height="32.4"></rect>
-            <rect x="129.58" y="32.4" width="32.4" height="32.4"></rect>
-            <rect y="194.38" width="32.4" height="32.4"></rect>
-            <rect x="32.4" y="194.38" width="32.4" height="32.4"></rect>
-            <rect x="64.79" y="194.38" width="32.4" height="32.4"></rect>
-            <rect x="97.19" y="194.38" width="32.4" height="32.4"></rect>
-            <rect x="129.58" y="194.38" width="32.4" height="32.4"></rect>
-            <rect x="161.98" y="194.38" width="32.4" height="32.4"></rect>
-            <rect x="194.38" y="194.38" width="32.4" height="32.4"></rect>
-          </svg>
-          AEL Prompt Framework™
-        </a>
-        <ul class="nav-menu">
-          <li><a href="#features" class="nav-link">Features</a></li>
-          <li><a href="#library" class="nav-link">1000 Prompts</a></li>
-          <li><a href="#search" class="nav-link">Search</a></li>
-          <li><a href="#download" class="nav-link">Download</a></li>
-        </ul>
-        <div class="nav-actions">
-          <a href="#library" class="btn btn-primary">Explore Prompts</a>
+<div class="doc-pane" id="pane-library">
+  <section class="prompts-library" id="library">
+    <div class="container">
+      <div class="section-title">
+        <h2>Advanced Prompt Library</h2>
+        <p>Search, filter, and explore 1000+ professional AI prompts</p>
+      </div>
+      <div class="search-container" id="search">
+        <input type="text" class="search-box" id="searchInput" placeholder="Search across all 1000 prompts..." />
+        <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap">
+          <button class="btn btn-secondary" onclick="clearSearch()">Clear Search</button>
+          <button class="btn btn-secondary" onclick="downloadOpenPrompts()">Download Open Prompts</button>
+          <span id="searchResults" style="color: #9ab3e6; margin-left: auto"></span>
         </div>
       </div>
-    </nav>
+      <div id="batchesContainer"></div>
+    </div>
+  </section>
+</div>
 
-    <section class="hero">
-      <div class="container">
-        <h1>1000+ AI Prompts Library</h1>
-        <p>
-          Professional modular prompt framework with comprehensive collection of
-          1000+ AI prompts for generating modern UI components and layouts
-        </p>
-        <div style="margin-top: 2rem">
-          <a href="#library" class="btn btn-primary">Explore All Prompts</a>
-          <a href="#download" class="btn btn-secondary">Download Library</a>
+<div class="doc-pane" id="pane-features">
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Complete Prompt Collection</h2>
+        <p>1000 professionally crafted prompts organized in 10 batches with advanced features</p>
+      </div>
+      <div class="glass">
+        <h3 style="margin-bottom:1.5rem">Framework Statistics</h3>
+        <div class="stats-grid">
+          <div class="stat-item"><span class="stat-number">1000+</span><span class="stat-label">Total Prompts</span></div>
+          <div class="stat-item"><span class="stat-number">50</span><span class="stat-label">Open Prompts</span></div>
+          <div class="stat-item"><span class="stat-number">950</span><span class="stat-label">Locked Prompts</span></div>
+          <div class="stat-item"><span class="stat-number">v1.0.0</span><span class="stat-label">Version</span></div>
         </div>
       </div>
-    </section>
 
-    <section class="features" id="features">
-      <div class="container">
-        <div class="section-title">
-          <h2>Complete Prompt Collection</h2>
-          <p>
-            1000 professionally crafted prompts organized in 10 batches with
-            advanced features
-          </p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="icon"><i class="fas fa-database"></i></span>
+          <h3>1000+ Curated Prompts</h3>
+          <p>Hand-crafted signature prompts and AI-generated content across 12 modern categories covering the full tech stack.</p>
         </div>
-        <div class="card">
-          <h3 class="card-header">Framework Statistics</h3>
-          <div class="stats-grid">
-            <div class="stat-item">
-              <span class="stat-number">1000+</span>
-              <span class="stat-label">Total Prompts</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">50</span>
-              <span class="stat-label">Open Prompts</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">950</span>
-              <span class="stat-label">Locked Prompts</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">v1.0.0</span>
-              <span class="stat-label">Version</span>
-            </div>
-          </div>
+        <div class="feature-card">
+          <span class="icon"><i class="fas fa-lock"></i></span>
+          <h3>Ultra-Lock System</h3>
+          <p>950 premium prompts protected by the AEL Ultra-Lock System. Enter a code to unlock the complete library instantly.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="prompts-library" id="library">
-      <div class="container">
-        <div class="section-title">
-          <h2>Advanced Prompt Library</h2>
-          <p>Search, filter, and explore 1000+ professional AI prompts</p>
+        <div class="feature-card">
+          <span class="icon"><i class="fas fa-layer-group"></i></span>
+          <h3>10 Organized Batches</h3>
+          <p>Lazy-loaded batches of 100 prompts each. Click to load, toggle visibility, and explore without overwhelming the interface.</p>
         </div>
-
-        <div class="search-container" id="search">
-          <input
-            type="text"
-            class="search-box"
-            id="searchInput"
-            placeholder="Search across all 1000 prompts..."
-          />
-          <div
-            style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap"
-          >
-            <button class="btn btn-secondary" onclick="clearSearch()">
-              Clear Search
-            </button>
-            <button class="btn btn-secondary" onclick="downloadOpenPrompts()">
-              Download Open Prompts
-            </button>
-            <span
-              id="searchResults"
-              style="color: #9ab3e6; margin-left: auto"
-            ></span>
-          </div>
+        <div class="feature-card">
+          <span class="icon"><i class="fas fa-search"></i></span>
+          <h3>Real-Time Search</h3>
+          <p>Search across titles, descriptions, and tags simultaneously. Find relevant prompts in milliseconds across all 1000 entries.</p>
         </div>
-
-        <!-- Batch containers will be dynamically loaded -->
-        <div id="batchesContainer"></div>
-      </div>
-    </section>
-
-    <section class="features" id="download">
-      <div class="container">
-        <div class="section-title">
-          <h2>Download Options</h2>
-          <p>Export the open prompts library in multiple formats</p>
+        <div class="feature-card">
+          <span class="icon"><i class="fas fa-file-export"></i></span>
+          <h3>Multi-Format Export</h3>
+          <p>Export open prompts as JSON, TXT, Markdown, or CSV. Unlock the full library to export all 1000 prompts.</p>
         </div>
-        <div class="card">
-          <h3 class="card-header">Export Formats (Open Prompts Only)</h3>
-          <div class="download-options">
-            <button class="btn btn-primary" onclick="exportOpenPrompts('json')">
-              Download as JSON
-            </button>
-            <button class="btn btn-primary" onclick="exportOpenPrompts('txt')">
-              Download as TXT
-            </button>
-            <button class="btn btn-primary" onclick="exportOpenPrompts('md')">
-              Download as Markdown
-            </button>
-            <button class="btn btn-primary" onclick="exportOpenPrompts('csv')">
-              Download as CSV
-            </button>
-          </div>
-          <div style="margin-top: 1rem; text-align: center;">
-            <p style="color: #9ab3e6; font-size: 0.875rem;">
-              Only open prompts (1-50) are available for download. Unlock all 950 prompts to access the complete library.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container">
-        <div
-          style="
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-          "
-        >
-          <div style="color: #9ab3e6">
-            <p>© 2026 Ayman Elmasry — AEL Digital Studio</p>
-            <p>All rights reserved under the AEL Prompt IP System™</p>
-          </div>
-          <div>
-            <p>Official Website: www.aymanelmasry.com</p>
-            <p>Contact: info@aymanelmasry.com</p>
-          </div>
-        </div>
-        <div class="ip-notice">
-          <p>
-            <strong>Intellectual Property Notice:</strong> AEL Prompt Framework™
-            v1.0.0 | Build: 2026-07-04 | Signature:
-            AEL-PROMPT-FRAMEWORK-v1.0.0-8f7e3d2a | This framework, including all
-            1000+ prompts, concepts, designs, algorithms, and prompt engineering
-            methodologies, is protected under the AEL Prompt IP System™ (2026).
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Toast Container -->
-    <div id="toast" class="toast"></div>
-
-    <!-- AEL Ultra-Lock System Modal -->
-    <div id="unlockModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title">Unlock Full Prompt Library</h3>
-        </div>
-        <div class="modal-body">
-          <p>This prompt is locked. Enter unlock code to access all 950 premium prompts.</p>
-          
-          <input 
-            type="text" 
-            class="unlock-code-input" 
-            id="unlockCodeInput"
-            placeholder="Enter unlock code: 00201113300073"
-            maxlength="13"
-          />
-          
-          <div class="contact-info">
-            <strong>Contact Owner for Unlock Code</strong><br>
-            owner:    Ayman Elmasry<br>
-            WhatsApp: +201113300073<br>
-            WhatsApp: +971506039162<br>
-            WhatsApp: +96555121251<br>
-            email:    info@aymanelmasry.com<br>
-            website:  www.aymanelmasry.com<br>
-            <em>Please contact the owner to purchase the full unlock code.</em>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" onclick="closeUnlockModal()">
-            Cancel
-          </button>
-          <button class="btn btn-primary" onclick="validateUnlockCode()">
-            Unlock Now
-          </button>
+        <div class="feature-card">
+          <span class="icon"><i class="fas fa-cogs"></i></span>
+          <h3>Generation Engine</h3>
+          <p>The AEL Prompt Generation Engine creates diverse, high-quality prompts using templated combinations of actions, topics, and features.</p>
         </div>
       </div>
     </div>
+  </section>
+</div>
 
-    <script>
-      // AEL Ultra-Lock System Configuration
-      const LOCK_START_ID = 51;
-      const UNLOCK_CODE = "00201113300073";
-      const OWNER_WHATSAPP = "+96555121251";
-      const OWNER_PHONE = "00201113300073";
-      
-      let AEL_UNLOCKED = false;
-      let currentPromptId = null;
-      let currentBatchNum = null;
+<div class="doc-pane" id="pane-engine">
+  <section class="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Prompt Generation Engine</h2>
+        <p>AEL's proprietary engine synthesizes 950 professional prompts from modular components</p>
+      </div>
+      <div class="glass">
+        <h3 style="margin-bottom:1rem;color:#0074FF">Architecture</h3>
+        <div class="engine-desc">
+          The <strong>AEL Prompt Generation Engine</strong> uses a combinatorial template system that produces unique, context-aware prompts. Each prompt is constructed from five modular dimensions:
+        </div>
+        <div class="engine-stats">
+          <div class="engine-stat"><h4>12 Categories</h4><div class="val">AI/ML, Web, Backend, Mobile, Design, DevOps, Security, Data, 3D, Testing, Performance, CLI</div></div>
+          <div class="engine-stat"><h4>8 Verbs</h4><div class="val">Build, Create, Design, Develop, Architect, Implement, Deploy, Configure</div></div>
+          <div class="engine-stat"><h4>20 Topics</h4><div class="val">Specialized subjects per category with real-world relevance</div></div>
+          <div class="engine-stat"><h4>10 Details</h4><div class="val">Implementation-specific context with modern stack references</div></div>
+          <div class="engine-stat"><h4>25 Features</h4><div class="val">Cross-cutting concerns like dark mode, accessibility, type safety</div></div>
+        </div>
+      </div>
 
-      // Framework Configuration
-      const FRAMEWORK_CONFIG = {
-        version: "1.0.0",
-        buildDate: "2026-07-04",
-        signature: "AEL-PROMPT-FRAMEWORK-v1.0.0-8f7e3d2a",
-        totalPrompts: 1000,
-        batches: 10,
-      };
+      <div class="feature-grid" style="margin-top:2rem">
+        <div class="feature-card">
+          <span class="icon"><i class="fas fa-random"></i></span>
+          <h3>Combinatorial Diversity</h3>
+          <p>Each prompt is a unique combination of verb + topic + detail + connector + feature, producing billions of possible unique prompts.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon"><i class="fas fa-tag"></i></span>
+          <h3>Tagged & Indexed</h3>
+          <p>Every generated prompt includes relevant tags for search and categorization, making it easy to find related content.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon"><i class="fas fa-bolt"></i></span>
+          <h3>50 Signature Prompts</h3>
+          <p>50 hand-crafted, production-grade prompts created by AEL that serve as the foundation for the entire library.</p>
+        </div>
+      </div>
 
-      // ===== AEL PROMPT GENERATION ENGINE =====
-      const CATS = [
-        {n:"AI & ML",v:["Build","Create","Design","Develop","Implement","Architect","Deploy","Optimize"],t:["neural network classifier","transformer language model","GAN image generator","recommendation engine","NLP sentiment analyzer","computer vision pipeline","predictive analytics model","reinforcement learning agent","K-means clustering system","word embedding visualizer","decision tree ensemble","convolutional neural net","LSTM sequence predictor","autoencoder compressor","attention mechanism layer","Siamese network matcher","YOLO object detector","BERT question answerer","GPT prompt optimizer","diffusion model sampler"],d:["with PyTorch training pipeline","using TensorFlow Serving","with ONNX runtime inference","supporting MLOps workflows","with gradient checkpointing","using mixed precision training","with distributed data parallelism","supporting A/B experiment tracking","with SHAP explainability","using Weights & Biases logging"],m:["Train neural network","Build ML pipeline","Deploy AI model"],ta:["ai","machine-learning","deep-learning","neural-networks"]},
-        {n:"Web Dev",v:["Build","Create","Design","Develop","Architect","Construct","Generate","Implement"],t:["responsive dashboard layout","single-page application shell","progressive web app shell","real-time collaborative editor","server-side rendered page","static site generator","micro-frontend architecture","component design system","state management store","API gateway proxy","WebSocket chat interface","GraphQL query resolver","RESTful CRUD endpoint","middleware pipeline chain","internationalization system","theme switching engine","drag-and-drop grid","infinite scroll feed","virtual scrolling list","split-panel workspace"],d:["with React 18 concurrent features","using Next.js App Router","with Vue 3 composition API","using SvelteKit server endpoints","with Angular standalone components","using Remix nested routing","with Qwik resumable hydration","using Astro island architecture","with Tailwind CSS v4","using Shadcn UI primitives"],m:["Build web app","Create dashboard","Design system"],ta:["web","frontend","react","vue","javascript"]},
-        {n:"Backend",v:["Build","Create","Design","Architect","Develop","Implement","Configure","Optimize"],t:["REST API server","GraphQL API gateway","gRPC microservice","message queue consumer","event-driven pipeline","caching layer system","database migration tool","authentication service","rate limiting middleware","logging aggregator","health check endpoint","circuit breaker proxy","configuration server","API versioning layer","job scheduler system","file upload service","email delivery agent","SMS notification worker","search index builder","data export pipeline"],d:["with Express middleware chain","using FastAPI async handlers","with Django REST framework","using Go goroutine pool","with NestJS dependency injection","using Spring Boot autoconfig","with Redis caching strategy","using PostgreSQL partitioning","with RabbitMQ message broker","using Kubernetes liveness probes"],m:["Build API server","Create microservice","Design backend"],ta:["backend","api","server","database","microservices"]},
-        {n:"Mobile",v:["Build","Create","Design","Develop","Architect","Implement","Generate","Configure"],t:["cross-platform mobile app","native iOS screen","Android activity layout","Flutter widget tree","React Native navigation","SwiftUI form component","Kotlin Compose UI","mobile camera capture","location tracking service","biometric auth screen","push notification handler","offline sync engine","mobile payment sheet","BLE peripheral scanner","AR overlay view","gesture recognizer system","custom keyboard extension","watchOS complication","widget home screen","deep link router"],d:["with React Native Skia rendering","using Flutter custom painters","with SwiftUI matched geometry","using Kotlin Compose animation","with Expo EAS builds","using Firebase Cloud Messaging","with Realm offline sync","using CoreML model integration","with CameraX MLKit analyzer","using ActivityResult contracts"],m:["Build mobile app","Create iOS screen","Design Flutter UI"],ta:["mobile","ios","android","react-native","flutter"]},
-        {n:"Design Systems",v:["Create","Design","Build","Develop","Implement","Architect","Generate","Style"],t:["design token taxonomy","color palette system","typography scale grid","spacing unit framework","icon component library","motion choreography suite","shadow elevation system","border radius scale","breakpoint management","theme switcher engine","accessibility audit tool","CSS custom property map","component API generator","documentation playground","interaction pattern lib","responsive ratio system","grid layout framework","animation easing curve","z-index management","semantic color map"],d:["with Figma token export","using Style Dictionary build","with Storybook CSF format","using Chromatic visual testing","with Radix UI primitives","using Ark UI headless","with Zag machine architecture","using CSS container queries","with Cascade layers strategy","using PostCSS nested plugin"],m:["Create design tokens","Build component library","Style design system"],ta:["design-system","ui","css","design","figma"]},
-        {n:"DevOps",v:["Build","Create","Configure","Architect","Implement","Design","Deploy","Optimize"],t:["CI/CD pipeline","Docker container stack","Kubernetes deployment spec","Terraform IaC module","Ansible playbook config","Helm chart package","GitHub Actions workflow","GitLab CI template","monitoring dashboard","log aggregation stack","load balancer config","service mesh proxy","secret management vault","auto-scaling policy","backup cron strategy","blue-green deploy plan","canary release system","chaos engineering test","SLO alert rule","cost optimization report"],d:["with GitHub Actions matrix builds","using ArgoCD GitOps sync","with Prometheus metric collection","using Grafana Loki aggregation","with OpenTelemetry tracing","using Kyverno policy engine","with Karpenter node scaling","using Pulumi infrastructure","with Crossplane composition","using Vault dynamic secrets"],m:["Build CI/CD pipeline","Configure Kubernetes","Create Docker image"],ta:["devops","docker","kubernetes","ci-cd","infrastructure"]},
-        {n:"Security",v:["Build","Create","Design","Implement","Configure","Architect","Audit","Develop"],t:["OAuth 2.0 auth server","JWT token service","RBAC permission system","API key manager","CORS policy config","CSP header generator","XSS sanitization lib","SQL injection preventer","CSRF token handler","password hasher","MFA authenticator","session store engine","audit log system","secret scanning tool","vulnerability scanner","rate limit middleware","IP whitelist module","encryption helper lib","certificate manager","zero-trust proxy"],d:["with bcrypt adaptive hashing","using OWASP ASVS standards","with WebAuthn passkey support","using PKCE flow","with OAuth 2.1 device grant","using Paseto tokens","with mTLS authentication","using HashiCorp Boundary","with SOPS encrypted secrets","using Sigstore signing"],m:["Build auth system","Create security middleware","Configure OAuth"],ta:["security","auth","encryption","privacy","compliance"]},
-        {n:"Data Science",v:["Build","Create","Design","Develop","Implement","Analyze","Visualize","Architect"],t:["ETL data pipeline","data warehouse schema","real-time stream processor","batch job scheduler","data quality checker","feature store system","A/B test analyzer","time series forecast","anomaly detection engine","customer segmentation","churn prediction model","fraud detection system","sentiment analysis pipeline","text summarization tool","knowledge graph builder","data lake catalog","columnar storage format","query optimization engine","dashboard analytics view","report generator engine"],d:["with Apache Spark DataFrame API","using dbt transformation workflow","with Great Expectations validation","using Delta Lake versioning","with Kafka Streams processing","using Airflow DAG orchestration","with DuckDB in-process engine","using Superset visualization","with Streamlit interactive app","using Bokeh server backend"],m:["Build ETL pipeline","Create data warehouse","Analyze dataset"],ta:["data-science","analytics","etl","data","visualization"]},
-        {n:"3D & Graphics",v:["Build","Create","Design","Develop","Architect","Implement","Render","Generate"],t:["3D scene viewer","WebGL shader program","Three.js interactive model","particle system engine","physics simulation world","VR immersive space","AR marker tracker","2D canvas painter","SVG animation engine","WebGPU compute shader","GLTF model loader","ray tracing renderer","procedural terrain gen","water simulation shader","cloth physics system","lighting engine config","shadow mapping pipeline","post-processing stack","texture atlas packer","geometry instancer"],d:["with Three.js R155 features","using React Three Fiber","with Babylon.js 7 engine","using PlayCanvas physics","with WebGPU compute API","using GSAP FLIP animations","with PixiJS v8 filters","using Paper.js vector API","with D3 force simulation","using Anime.js timeline"],m:["Create 3D scene","Build particle system","Design WebGL shader"],ta:["3d","graphics","webgl","threejs","animation"]},
-        {n:"Testing",v:["Build","Create","Write","Design","Implement","Configure","Develop","Architect"],t:["unit test suite","integration test harness","end-to-end test spec","component storybook","visual regression test","API contract test","performance benchmark","load test scenario","accessibility test suite","mock server stub","fixture generator","test runner config","code coverage tool","snapshot test system","property-based test","fuzz testing engine","A/B test framework","canary test suite","smoke check pipeline","regression test suite"],d:["with Vitest in-process runner","using Playwright trace viewer","with Cypress component testing","using Testing Library queries","with MSW handler interception","using Faker.js data generation","with Playwright codegen","using k6 performance testing","with Lighthouse CI audit","using Percy visual diff"],m:["Write unit tests","Create E2E test suite","Build test framework"],ta:["testing","qa","e2e","unit-test","ci"]},
-        {n:"Performance",v:["Build","Create","Optimize","Design","Architect","Implement","Audit","Configure"],t:["bundle analyzer tool","lazy loading system","code splitting strategy","image optimization pipe","font loading strategy","cache invalidation plan","CDN distribution config","critical CSS generator","preload/prefetch planner","memory profiler tool","render optimization pass","network waterfall viewer","Core Web Vitals tracker","resource hint manager","tree-shaking config","dead code eliminator","chunk splitting optimizer","long task breaker","layout shift fixer","fiber scheduler"],d:["with Webpack bundle analyzer","using Vite code splitting","with Lighthouse performance budget","using Chrome DevTools protocol","with PageSpeed Insights API","using Cloudflare Workers","with Next.js ISR","using Nuxt hybrid rendering","with Svelte compile-time opt","using Astro zero-JS islands"],m:["Optimize bundle","Improve Core Web Vitals","Build performance tool"],ta:["performance","optimization","web-vitals","bundling","caching"]},
-        {n:"CLI & Tools",v:["Build","Create","Design","Develop","Architect","Implement","Generate","Configure"],t:["CLI scaffolding tool","task runner system","file watcher utility","code generator engine","package manager wrapper","dotfile manager tool","template renderer","configuration migrator","data converter cli","pretty printer formatter","dev server proxy","database seed tool","API client generator","documentation builder","changelog generator","release pipeline cli","lint rule customizer","formatter plugin api","pre-commit hook","workspace manager"],d:["with Commander.js argument parser","using Inquirer interactive prompts","with Chalk terminal styling","using Ora spinner feedback","with Zod schema validation","using Babel AST traversal","with Prettier plugin API","using ESLint rule context","with Yargs builder pattern","using Listr2 task pipeline"],m:["Build CLI tool","Create task runner","Design code generator"],ta:["cli","tools","developer-experience","terminal","automation"]}
-      ];
-      const ACTIONS = ["Architect","Build","Configure","Construct","Create","Deploy","Design","Develop","Engineer","Generate","Implement","Integrate","Optimize","Orchestrate","Render","Scale","Structure","Synthesize","Systematize","Transform"];
-      const CONNECTORS = ["featuring","including","integrating","supporting","with","using","powered by","built on","leveraging","enriched with"];
-      const FEATURES = ["dark mode support","glassmorphism aesthetics","micro-interaction feedback","motion design language","progressive enhancement","responsive fluid layout","accessibility compliance","auto-generated documentation","real-time collaboration","offline-first architecture","edge computing deployment","zero-runtime CSS","tree-shakeable modules","first-class TypeScript","end-to-end type safety","streaming SSR","incremental static regen","server component hydration","optimistic UI updates","skeleton loading states","infinite query pagination","declarative animation","atomic design methodology","CLS prevention strategy","LCP optimization path"];
+      <div class="ip-notice">
+        <p><strong>Generation Signature:</strong> AEL-PROMPT-FRAMEWORK-v1.0.0-8f7e3d2a | All 1000+ prompts, concepts, algorithms, and prompt engineering methodologies are protected under the AEL Prompt IP System™ (2026).</p>
+      </div>
+    </div>
+  </section>
+</div>
 
-      function generatePrompts(count){
-        const prompts=[],seenTitles=new Set();
-        for(let i=0;i<count;i++){
-          const cat=CATS[i%CATS.length];
-          const verb=cat.v[i%cat.v.length];
-          const topic=cat.t[i%cat.t.length];
-          const detail=cat.d[i%cat.d.length];
-          const feature1=FEATURES[(i*7)%FEATURES.length];
-          const feature2=FEATURES[(i*13+5)%FEATURES.length];
-          const connector=CONNECTORS[i%CONNECTORS.length];
-          const action=ACTIONS[(i*3)%ACTIONS.length];
-          const id=i+1;
-          const title=`${verb} ${topic}`;
-          const desc=`${action} a production-grade ${topic} ${connector} ${detail}, ${feature1} and ${feature2}. Engineered for scalability, maintainability, and modern developer experience.`;
-          const minimal=`${verb} ${topic}`;
-          const tags=cat.ta.slice();
-          prompts.push({id,batch:Math.ceil(id/100),title,description:desc,minimal,tags,synthesized:true});
-        }
-        return prompts;
-      }
+<div class="doc-pane" id="pane-export">
+  <section class="features" id="download">
+    <div class="container">
+      <div class="section-title">
+        <h2>Download Options</h2>
+        <p>Export the open prompts library in multiple formats</p>
+      </div>
+      <div class="glass">
+        <h3 style="margin-bottom:1.5rem">Export Formats (Open Prompts Only)</h3>
+        <div class="download-options">
+          <button class="btn btn-primary" onclick="exportOpenPrompts('json')">Download as JSON</button>
+          <button class="btn btn-primary" onclick="exportOpenPrompts('txt')">Download as TXT</button>
+          <button class="btn btn-primary" onclick="exportOpenPrompts('md')">Download as Markdown</button>
+          <button class="btn btn-primary" onclick="exportOpenPrompts('csv')">Download as CSV</button>
+        </div>
+        <div style="margin-top: 1rem; text-align: center;">
+          <p style="color: #9ab3e6; font-size: 0.875rem;">Only open prompts (1-50) are available for download. Unlock all 950 prompts to access the complete library.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
-      // 50 signature hand-crafted prompts
-      const SIGNATURE_PROMPTS = [
-        {title:"Design intelligent neural network classifier",desc:"Build a production-grade neural network classifier with PyTorch training pipeline, supporting dark mode visualization, gradient checkpointing for memory efficiency, and automated model versioning via MLflow.",tags:["ai","machine-learning","deep-learning","neural-networks"]},
-        {title:"Architect transformer language model pipeline",desc:"Engineer a transformer-based language model with distributed data parallelism using TensorFlow Serving, featuring real-time collaboration for model experimentation and first-class type safety for inference contracts.",tags:["ai","machine-learning","nlp","transformers"]},
-        {title:"Build GAN image synthesis engine",desc:"Construct a generative adversarial network for image synthesis with mixed precision training, glassmorphism-styled training dashboard, and progressive enhancement for browser-based inference.",tags:["ai","deep-learning","computer-vision","generative"]},
-        {title:"Create recommendation engine microservice",desc:"Develop a real-time recommendation engine using FastAPI async handlers with Redis caching, supporting A/B experiment tracking, offline-first architecture for edge deployment, and end-to-end type safety.",tags:["ai","backend","microservices","recommendation"]},
-        {title:"Deploy computer vision inference API",desc:"Architect a computer vision inference API with ONNX runtime and Kubernetes liveness probes, integrating auto-generated OpenAPI documentation and skeleton loading states for streamed predictions.",tags:["ai","computer-vision","devops","api"]},
-        {title:"Implement NLP sentiment analyzer",desc:"Build a real-time NLP sentiment analyzer with BERT embeddings and WebSocket streaming, featuring optimistic UI updates via React Server Components and comprehensive CLS prevention.",tags:["ai","nlp","web","frontend"]},
-        {title:"Design responsive dashboard layout",desc:"Engineer a responsive dashboard layout using React 18 concurrent features with Tailwind CSS v4, integrating dark mode support, glassmorphism card aesthetics, and micro-interaction feedback for data points.",tags:["web","frontend","react","dashboard"]},
-        {title:"Build progressive web app shell",desc:"Construct a progressive web app shell with Next.js App Router and streaming SSR, featuring offline-first architecture with service workers, incremental static regeneration for content, and end-to-end type safety.",tags:["web","frontend","pwa","react","nextjs"]},
-        {title:"Create component design system",desc:"Develop a comprehensive component design system with Radix UI primitives and Storybook CSF format, integrating auto-generated documentation via Style Dictionary and Figma token export for seamless designer-developer workflow.",tags:["design-system","ui","css","design","figma"]},
-        {title:"Architect state management store",desc:"Design a scalable state management solution with Zustand and Immer middleware, supporting real-time collaboration via CRDT, tree-shakeable module exports, and first-class TypeScript inference.",tags:["web","frontend","state-management","react","typescript"]},
-        {title:"Build real-time collaborative editor",desc:"Engineer a real-time collaborative text editor using CRDT conflict resolution with Yjs and WebSocket sync, featuring cursor awareness overlays, offline-editing support, and zero-runtime CSS for UI.",tags:["web","frontend","collaboration","real-time","javascript"]},
-        {title:"Create GraphQL API gateway",desc:"Develop a GraphQL API gateway with Apollo Federation and schema stitching, integrating rate limiting, dependency injection via NestJS modules, and auto-generated TypeScript types from SDL.",tags:["backend","api","graphql","microservices"]},
-        {title:"Implement RESTful CRUD backend",desc:"Build a RESTful CRUD API with Express middleware chain and PostgreSQL partitioning, featuring comprehensive request validation, paginated responses, OpenAPI documentation, and database migration tooling.",tags:["backend","api","rest","database","express"]},
-        {title:"Design event-driven pipeline",desc:"Architect an event-driven processing pipeline with RabbitMQ message broker and Kafka Streams, supporting dead-letter queues, idempotent consumers, and distributed tracing via OpenTelemetry.",tags:["backend","microservices","events","messaging"]},
-        {title:"Build authentication microservice",desc:"Construct a stateless authentication service with JWT and OAuth 2.0, integrating WebAuthn passkey support, rate limiting via token bucket algorithm, and comprehensive audit logging for compliance.",tags:["security","auth","backend","microservices"]},
-        {title:"Create cross-platform mobile app",desc:"Develop a cross-platform mobile application with React Native Skia rendering and Expo EAS builds, featuring biometric authentication, offline sync via Realm database, and shared design tokens.",tags:["mobile","react-native","cross-platform"]},
-        {title:"Design Flutter widget library",desc:"Engineer a Flutter widget library with custom painters and implicit animations, integrating Material 3 design tokens, responsive breakpoint system, and automated golden test coverage.",tags:["mobile","flutter","design-system","ui"]},
-        {title:"Build iOS SwiftUI form system",desc:"Construct a SwiftUI form system with matched geometry transitions and CoreML model integration, supporting VoiceOver accessibility, dynamic type scaling, and Combine reactive validation.",tags:["mobile","ios","swiftui","apple"]},
-        {title:"Create design token taxonomy",desc:"Develop a comprehensive design token taxonomy with Style Dictionary and Figma export plugin, covering color, typography, spacing, shadow, and motion tokens with automated documentation.",tags:["design-system","css","figma","design-tokens"]},
-        {title:"Architect color palette system",desc:"Design a semantic color palette system with OKLCH color space, WCAG AAA compliance checker, and dynamic theme generation supporting light, dark, and high-contrast modes.",tags:["design-system","ui","css","accessibility","color"]},
-        {title:"Build animation choreography suite",desc:"Engineer an animation choreography system with Framer Motion and GSAP timeline orchestration, featuring staggered children animations, scroll-driven reveals, and reduced-motion respect.",tags:["design-system","animation","ui","react","javascript"]},
-        {title:"Implement CI/CD pipeline",desc:"Construct a CI/CD pipeline with GitHub Actions matrix builds and ArgoCD GitOps sync, integrating automated testing, Docker image caching, Helm chart deployment, and SLO monitoring.",tags:["devops","ci-cd","github-actions","kubernetes","docker"]},
-        {title:"Design Docker container stack",desc:"Architect a multi-service Docker Compose stack with health checks, volume persistence, network isolation, and Dockerfile multi-stage builds for optimized production images under 100MB.",tags:["devops","docker","containers","infrastructure"]},
-        {title:"Configure Kubernetes deployment",desc:"Build a Kubernetes deployment spec with Horizontal Pod Autoscaler, Pod Disruption Budgets, resource quotas, and Karpenter node scaling for cost-optimized cluster operations.",tags:["devops","kubernetes","infrastructure","scaling"]},
-        {title:"Build Terraform IaC module",desc:"Develop a reusable Terraform module with remote state locking, workspace isolation, and Sentinel policy enforcement for provisioning AWS EKS clusters with security-by-default posture.",tags:["devops","terraform","infrastructure","aws","iac"]},
-        {title:"Create monitoring observability stack",desc:"Engineer a monitoring stack with Prometheus metric collection, Grafana Loki log aggregation, and OpenTelemetry distributed tracing, featuring SLO-based alerting with AlertManager.",tags:["devops","monitoring","observability","prometheus","grafana"]},
-        {title:"Implement rate limiting middleware",desc:"Build a distributed rate limiting middleware with Redis sliding window counter, supporting per-user, per-IP, and per-endpoint quotas with informative Retry-After headers.",tags:["security","backend","middleware","api","rate-limiting"]},
-        {title:"Design zero-trust security proxy",desc:"Architect a zero-trust proxy with mTLS authentication, mutual verification, and SPIFFE workload identity, integrating certificate auto-rotation via cert-manager on Kubernetes.",tags:["security","networking","kubernetes","zero-trust"]},
-        {title:"Build ETL data pipeline",desc:"Engineer an ETL pipeline with Apache Spark DataFrame API and dbt transformation workflow, featuring Great Expectations data validation, Airflow DAG orchestration, and Delta Lake versioning.",tags:["data-science","etl","pipeline","spark","airflow"]},
-        {title:"Create data warehouse schema",desc:"Design a star-schema data warehouse with DuckDB in-process engine and dbt model testing, integrating incremental materialization, source freshness checks, and Superset dashboards.",tags:["data-science","analytics","warehouse","sql","dbt"]},
-        {title:"Build real-time stream processor",desc:"Develop a real-time stream processing system with Kafka Streams DSL and stateful windowed aggregations, featuring exactly-once semantics, schema registry integration, and interactive queries.",tags:["data-science","streaming","kafka","real-time"]},
-        {title:"Design knowledge graph builder",desc:"Construct a knowledge graph builder with Neo4j and NLP entity extraction, integrating relationship inference, graph embeddings for ML, and interactive D3.js visualization.",tags:["data-science","graph","nlp","visualization","ai"]},
-        {title:"Create 3D scene viewer",desc:"Build an interactive 3D scene viewer with Three.js R155 and React Three Fiber, featuring physics-based animations via Rapier, PBR material system, and progressive enhancement for WebGPU.",tags:["3d","graphics","threejs","webgl","react"]},
-        {title:"Design WebGL particle system",desc:"Engineer a GPU-accelerated particle system with custom WebGL shaders and GPGPU compute, supporting 100K+ particles at 60fps, mouse interaction, and configurable emission profiles.",tags:["3d","graphics","webgl","shaders","particles"]},
-        {title:"Build end-to-end test suite",desc:"Develop a comprehensive E2E test suite with Playwright trace viewer and component testing via Cypress, integrating visual regression with Percy, and MSW handler interception for API mocking.",tags:["testing","e2e","playwright","cypress","qa"]},
-        {title:"Create unit test framework",desc:"Construct a unit test architecture with Vitest in-process runner and Testing Library queries, featuring custom matchers, Faker.js test data generation, and automated coverage thresholds.",tags:["testing","unit-test","vitest","javascript","qa"]},
-        {title:"Implement load test scenario",desc:"Design a load testing framework with k6 performance testing and Grafana dashboard, simulating realistic user flows, measuring p95 latency, and asserting SLO compliance.",tags:["testing","performance","load-testing","k6","qa"]},
-        {title:"Optimize Core Web Vitals",desc:"Analyze and optimize Core Web Vitals with Lighthouse CI audit and PageSpeed Insights API, implementing LCP image optimization, CLS layout shift prevention, and INP event debouncing.",tags:["performance","web-vitals","optimization","lighthouse","seo"]},
-        {title:"Build bundle analyzer tool",desc:"Create a bundle analysis tool with Vite rollup plugin API and source-map visualization, identifying duplicate dependencies, code splitting opportunities, and tree-shaking improvements.",tags:["performance","bundling","vite","webpack","optimization"]},
-        {title:"Design lazy loading system",desc:"Architect a lazy loading system with Intersection Observer and React.lazy + Suspense, featuring preload heuristics, route-based code splitting, and skeleton loading fallbacks.",tags:["performance","frontend","react","loading","ux"]},
-        {title:"Create CLI scaffolding tool",desc:"Build an interactive CLI scaffolding tool with Commander.js argument parser and Inquirer prompts, integrating Chalk styling, Ora spinners, and boilerplate templates for rapid project initialization.",tags:["cli","tools","developer-experience","terminal","automation"]},
-        {title:"Design task runner system",desc:"Engineer a task runner with Listr2 pipeline and Babel AST traversal, supporting parallel execution, file watching with chokidar, and custom plugin architecture for extensibility.",tags:["cli","tools","automation","nodejs","developer-experience"]},
-        {title:"Build code generation engine",desc:"Develop a code generator with TypeScript Compiler API and EJS templates, featuring abstract syntax tree manipulation, prettier formatting integration, and configurable output presets.",tags:["cli","tools","code-generation","typescript","automation"]},
-        {title:"Construct mobile payment sheet",desc:"Build a mobile payment sheet UI with Apple Pay and Google Pay integration, supporting 3D Secure authentication, receipt generation, and real-time currency conversion with fallback states.",tags:["mobile","payments","ios","android","ux"]},
-        {title:"Design AR overlay experience",desc:"Create an AR overlay experience with ARKit/ARCore integration and 3D model tracking, featuring surface detection, lighting estimation, and real-time occlusion for immersive placement.",tags:["mobile","ar","3d","ios","android"]},
-        {title:"Build accessibility audit tool",desc:"Engineer an automated accessibility audit tool with axe-core and Lighthouse AXE integration, generating WCAG 2.2 compliance reports with remediation suggestions and severity scoring.",tags:["accessibility","testing","audit","a11y","compliance"]},
-        {title:"Create documentation playground",desc:"Build an interactive documentation playground with MDX and Sandpack, featuring live code editing, responsive preview, design token inspector, and searchable component API reference.",tags:["design-system","documentation","developer-experience","react","storybook"]},
-        {title:"Design crypto wallet interface",desc:"Develop a cryptocurrency wallet UI supporting multiple chains (EVM, Solana, Bitcoin), featuring transaction signing, NFT gallery display, price chart visualization, and hardware wallet connectivity.",tags:["web","blockchain","crypto","ui","finance"]},
-        {title:"Build WebSocket chat system",desc:"Construct a real-time chat system with WebSocket bidirectional communication and CRDT message ordering, supporting typing indicators, read receipts, file sharing, and emoji reactions.",tags:["web","real-time","websocket","collaboration","frontend"]},
-        {title:"Architect SRE incident response",desc:"Design an SRE incident response system with PagerDuty integration and automated runbook execution, featuring severity classification, escalation policies, post-mortem generation, and on-call scheduling.",tags:["devops","sre","incident-response","reliability","monitoring"]}
-      ].map((p,i)=>({id:i+1,batch:1,title:p.title,description:p.desc,minimal:p.title,tags:p.tags,synthesized:false}));
+<div class="doc-pane" id="pane-about">
+  <section class="features">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>About AEL Prompt Framework</h3>
+          <p>The AEL Prompt Framework is a comprehensive library of 1000+ professional AI prompts with the AEL Prompt Generation Engine, Ultra-Lock System, and multi-format export. Built by Ayman Elmasry for modern development teams.</p>
+        </div>
+        <div class="about-card">
+          <h3>Tech Stack</h3>
+          <ul>
+            <li>Vanilla JavaScript (ES6+)</li>
+            <li>CSS3 with Glassmorphism</li>
+            <li>HTML5 Semantic Markup</li>
+            <li>AEL Prompt Generation Engine</li>
+            <li>AEL Ultra-Lock System</li>
+            <li>Multi-Format Export (JSON/TXT/MD/CSV)</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h3>Version History</h3>
+          <ul>
+            <li>v1.0.0 — Modular split (HTML/CSS/JS)</li>
+            <li>v0.9 — Generation engine optimized</li>
+            <li>v0.8 — Ultra-Lock implementation</li>
+            <li>v0.5 — Initial 1000 prompt release</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h3>Contact & Links</h3>
+          <div class="contact-info">
+            <p><strong>Creator:</strong> Ayman Elmasry</p>
+            <p><strong>Studio:</strong> AEL Digital Studio</p>
+            <p><strong>Email:</strong> info@aymanelmasry.com</p>
+            <p><strong>Website:</strong> www.aymanelmasry.com</p>
+            <p><strong>Live Site:</strong> <a href="https://aymanelmasryael.github.io/ael-1000-prompts-library/">ael-1000-prompts-library</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/aymanelmasryael/ael-1000-prompts-library">github.com/aymanelmasryael/ael-1000-prompts-library</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
-      // Generate remaining 950 prompts
-      const GENERATED_PROMPTS = generatePrompts(950).map((p, i) => {
-        p.id = i + 51;
-        p.batch = Math.ceil((i + 51) / 100);
-        return p;
-      });
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem">
+      <div style="color:#9ab3e6">
+        <p>&copy; 2026 Ayman Elmasry — AEL Digital Studio</p>
+        <p>All rights reserved under the AEL Prompt IP System™</p>
+      </div>
+      <div>
+        <p>Official Website: www.aymanelmasry.com</p>
+        <p>Contact: info@aymanelmasry.com</p>
+      </div>
+    </div>
+    <div class="ip-notice">
+      <p><strong>Intellectual Property Notice:</strong> AEL Prompt Framework™ v1.0.0 | Build: 2026-07-04 | Signature: AEL-PROMPT-FRAMEWORK-v1.0.0-8f7e3d2a | This framework, including all 1000+ prompts, concepts, designs, algorithms, and prompt engineering methodologies, is protected under the AEL Prompt IP System™ (2026).</p>
+    </div>
+  </div>
+</footer>
 
-      const PROMPTS_DATA = { prompts: [...SIGNATURE_PROMPTS, ...GENERATED_PROMPTS] };
+<div id="toast" class="toast"></div>
 
-      // Lazy Loading System
-      const loadedBatches = new Set();
-      const batchCache = new Map();
+<div id="unlockModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title">Unlock Full Prompt Library</h3>
+    </div>
+    <div class="modal-body">
+      <p>This prompt is locked. Enter unlock code to access all 950 premium prompts.</p>
+      <input type="text" class="unlock-code-input" id="unlockCodeInput" placeholder="Enter unlock code: 00201113300073" maxlength="13" />
+      <div class="contact-info">
+        <strong>Contact Owner for Unlock Code</strong><br>
+        owner:    Ayman Elmasry<br>
+        WhatsApp: +201113300073<br>
+        WhatsApp: +971506039162<br>
+        WhatsApp: +96555121251<br>
+        email:    info@aymanelmasry.com<br>
+        website:  www.aymanelmasry.com<br>
+        <em>Please contact the owner to purchase the full unlock code.</em>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeUnlockModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="validateUnlockCode()">Unlock Now</button>
+    </div>
+  </div>
+</div>
 
-      // Enhanced Search System
-      let searchIndex = [];
-
-      // Initialize the framework
-      document.addEventListener("DOMContentLoaded", function () {
-        initializeFramework();
-        setupSmoothScrolling();
-        initializeSearch();
-      });
-
-      function initializeFramework() {
-        loadBatchesList();
-        updateFrameworkStats();
-      }
-
-      function loadBatchesList() {
-        const batches = [
-          {id:1,title:"Batch 1: AI & ML — Neural Nets, Transformers, GANs, NLP, Vision",count:100},
-          {id:2,title:"Batch 2: Web Development — Dashboards, SPA, PWA, Design Systems",count:100},
-          {id:3,title:"Batch 3: Backend & APIs — REST, GraphQL, Microservices, Streaming",count:100},
-          {id:4,title:"Batch 4: Mobile Apps — iOS, Android, Flutter, React Native, AR",count:100},
-          {id:5,title:"Batch 5: Security & Auth — OAuth, JWT, RBAC, Zero-Trust, Encryption",count:100},
-          {id:6,title:"Batch 6: Data Science — ETL, Warehousing, Stream Processing, Viz",count:100},
-          {id:7,title:"Batch 7: 3D & Graphics — WebGL, Shaders, Three.js, Particles, VR",count:100},
-          {id:8,title:"Batch 8: Testing & QA — E2E, Unit Tests, Performance, Accessibility",count:100},
-          {id:9,title:"Batch 9: DevOps & SRE — CI/CD, Docker, K8s, Terraform, Monitoring",count:100},
-          {id:10,title:"Batch 10: CLI Tools & DX — Scaffolders, Code Gen, Automation, Linters",count:100},
-        ];
-
-        const container = document.getElementById("batchesContainer");
-        container.innerHTML = batches
-          .map(
-            (batch) => `
-                      <div class="batch-container">
-                          <div class="batch-header" onclick="loadBatch(${batch.id})">
-                              <h3>${batch.title}</h3>
-                              <span>${batch.count} prompts • Click to load</span>
-                          </div>
-                          <div class="prompts-grid" id="batch-${batch.id}">
-                              <div style="text-align: center; padding: 2rem; color: #9ab3e6;">
-                                  Click the header above to load ${batch.count} prompts
-                              </div>
-                          </div>
-                      </div>
-                  `
-          )
-          .join("");
-      }
-
-      async function loadBatch(batchNum) {
-        if (loadedBatches.has(batchNum)) {
-          toggleBatch(batchNum);
-          return;
-        }
-
-        showToast(`Loading batch ${batchNum}...`);
-
-        // Simulate loading delay for demonstration
-        await new Promise((resolve) => setTimeout(resolve, 500));
-
-        const prompts = await fetchBatchData(batchNum);
-        renderBatch(batchNum, prompts);
-        loadedBatches.add(batchNum);
-        updateSearchIndex(batchNum, prompts);
-        showToast(`Batch ${batchNum} loaded successfully!`);
-      }
-
-      async function fetchBatchData(batchNum) {
-        // Filter prompts by batch number
-        const batchPrompts = PROMPTS_DATA.prompts.filter(
-          (prompt) => prompt.batch === batchNum
-        );
-
-        // Convert to the format expected by the render function
-        return batchPrompts.map((prompt) => prompt.description);
-      }
-
-      // AEL Ultra-Lock System: Enhanced renderBatch function
-      function renderBatch(batchNum, prompts) {
-        const batchElement = document.getElementById(`batch-${batchNum}`);
-        batchElement.innerHTML = "";
-
-        const batchPrompts = PROMPTS_DATA.prompts.filter(
-          (prompt) => prompt.batch === batchNum
-        );
-
-        batchPrompts.forEach((prompt) => {
-          const isLocked = prompt.id >= LOCK_START_ID && !AEL_UNLOCKED;
-          
-          const promptElement = document.createElement("div");
-          promptElement.className = `prompt-item ${isLocked ? 'locked' : ''}`;
-          
-          let promptContent = '';
-          
-          if (isLocked) {
-            promptContent = `
-              <div class="prompt-number">Prompt #${prompt.id} - ${prompt.title}</div>
-              <div class="prompt-text">🔐 Locked — Click to Unlock</div>
-              <div class="prompt-tags">Tags: ${prompt.tags.join(", ")}</div>
-              <div class="lock-overlay">
-                <div class="lock-icon">🔒</div>
-                <div class="lock-text">Click to unlock this prompt</div>
-              </div>
-            `;
-          } else {
-            promptContent = `
-              <div class="prompt-number">Prompt #${prompt.id} - ${prompt.title}</div>
-              <div class="prompt-text">${prompt.description}</div>
-              <div class="prompt-tags">Tags: ${prompt.tags.join(", ")}</div>
-            `;
-          }
-          
-          promptElement.innerHTML = promptContent;
-          
-          // Set click handler based on lock status
-          if (isLocked) {
-            promptElement.onclick = () => showUnlockModal(prompt.id, batchNum);
-          } else {
-            promptElement.onclick = () => copyPromptToClipboard(prompt.description, prompt.id);
-          }
-          
-          batchElement.appendChild(promptElement);
-        });
-      }
-
-      function toggleBatch(batchNum) {
-        const batchElement = document.getElementById(`batch-${batchNum}`);
-        if (batchElement) {
-          batchElement.style.display =
-            batchElement.style.display === "none" ? "grid" : "none";
-        }
-      }
-
-      // AEL Ultra-Lock System: Modal Functions
-      function showUnlockModal(promptId, batchNum) {
-        currentPromptId = promptId;
-        currentBatchNum = batchNum;
-        document.getElementById('unlockCodeInput').value = '';
-        document.getElementById('unlockModal').classList.add('show');
-      }
-
-      function closeUnlockModal() {
-        document.getElementById('unlockModal').classList.remove('show');
-        currentPromptId = null;
-        currentBatchNum = null;
-      }
-
-      function validateUnlockCode() {
-        const enteredCode = document.getElementById('unlockCodeInput').value.trim();
-        
-        if (enteredCode === UNLOCK_CODE) {
-          AEL_UNLOCKED = true;
-          showToast("All 950 prompts unlocked successfully!");
-          closeUnlockModal();
-          
-          // Re-render all loaded batches to remove locks
-          loadedBatches.forEach(batchNum => {
-            const prompts = PROMPTS_DATA.prompts.filter(
-              (prompt) => prompt.batch === batchNum
-            );
-            renderBatch(batchNum, prompts);
-          });
-        } else {
-          showToast("Invalid unlock code. Please contact the owner.", "error");
-        }
-      }
-
-      // Get only open prompts (1-50)
-      function getOpenPrompts() {
-        return PROMPTS_DATA.prompts.filter(prompt => prompt.id <= 50);
-      }
-
-      // Export functions for open prompts only
-      function exportOpenPrompts(format) {
-        const openPrompts = getOpenPrompts();
-        const timestamp = new Date().toISOString().split("T")[0];
-        const filename = `AEL-Prompt-Framework-OPEN-PROMPTS-${format}-${timestamp}`;
-
-        let content = "";
-        let mimeType = "";
-
-        switch (format) {
-          case "json":
-            content = JSON.stringify(
-              {
-                metadata: {
-                  ...FRAMEWORK_CONFIG,
-                  note: "This file contains only open prompts (1-50). Contact owner for full library access."
-                },
-                prompts: openPrompts,
-              },
-              null,
-              2
-            );
-            mimeType = "application/json";
-            break;
-          case "txt":
-            content = generateOpenTextExport(openPrompts);
-            mimeType = "text/plain";
-            break;
-          case "md":
-            content = generateOpenMarkdownExport(openPrompts);
-            mimeType = "text/markdown";
-            break;
-          case "csv":
-            content = generateOpenCSVExport(openPrompts);
-            mimeType = "text/csv";
-            break;
-        }
-
-        downloadFile(content, filename + "." + format, mimeType);
-        showToast(`Exported ${openPrompts.length} open prompts as ${format.toUpperCase()}`);
-      }
-
-      function generateOpenTextExport(openPrompts) {
-        let content = `AEL Prompt Framework™ - OPEN PROMPTS ONLY\nVersion: ${
-          FRAMEWORK_CONFIG.version
-        }\nOpen Prompts: ${
-          openPrompts.length
-        }\nTotal Prompts: 1000\nExported: ${new Date().toISOString()}\n\n`;
-        content += "NOTE: This file contains only the first 50 open prompts.\n";
-        content += `To unlock all 950 premium prompts, contact the owner:\n`;
-        content += `WhatsApp: ${OWNER_WHATSAPP}\n`;
-        content += `Phone: ${OWNER_PHONE}\n\n`;
-
-        openPrompts.forEach((prompt) => {
-          content += `=== Prompt #${prompt.id} ===\n`;
-          content += `Title: ${prompt.title}\n`;
-          content += `Batch: ${prompt.batch}\n`;
-          content += `Description: ${prompt.description}\n`;
-          content += `Minimal: ${prompt.minimal}\n`;
-          content += `Tags: ${prompt.tags.join(", ")}\n\n`;
-        });
-
-        return content;
-      }
-
-      function generateOpenMarkdownExport(openPrompts) {
-        let content = `# AEL Prompt Framework™ - OPEN PROMPTS ONLY\n\n**Version:** ${
-          FRAMEWORK_CONFIG.version
-        }\n**Open Prompts:** ${
-          openPrompts.length
-        }\n**Total Prompts:** 1000\n**Export Date:** ${new Date().toISOString()}\n\n`;
-        content += "> **NOTE:** This file contains only the first 50 open prompts.\n";
-        content += `> **To unlock all 950 premium prompts, contact the owner:**\n`;
-        content += `> **WhatsApp:** ${OWNER_WHATSAPP}\n`;
-        content += `> **Phone:** ${OWNER_PHONE}\n\n## Open Prompts Library\n\n`;
-
-        openPrompts.forEach((prompt) => {
-          content += `### ${prompt.id}. ${prompt.title}\n\n`;
-          content += `**Batch:** ${prompt.batch}  \n`;
-          content += `**Description:** ${prompt.description}  \n`;
-          content += `**Minimal Version:** ${prompt.minimal}  \n`;
-          content += `**Tags:** ${prompt.tags
-            .map((tag) => `\`${tag}\``)
-            .join(", ")}  \n\n`;
-        });
-
-        return content;
-      }
-
-      function generateOpenCSVExport(openPrompts) {
-        let content = "ID,Batch,Title,Description,Minimal,Tags,Status\n";
-
-        openPrompts.forEach((prompt) => {
-          content += `"${prompt.id}","${prompt.batch}","${prompt.title}","${
-            prompt.description
-          }","${prompt.minimal}","${prompt.tags.join(", ")}","OPEN"\n`;
-        });
-
-        return content;
-      }
-
-      function downloadOpenPrompts() {
-        exportOpenPrompts("json");
-      }
-
-      function downloadFile(content, filename, mimeType) {
-        const blob = new Blob([content], { type: mimeType });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      }
-
-      function showToast(message, type = "success") {
-        const toast = document.getElementById("toast");
-        toast.textContent = message;
-        toast.style.background = type === "error" ? "rgba(239,68,68,.9)" : "rgba(0,255,136,.9)";
-        toast.classList.add("show");
-
-        setTimeout(() => {
-          toast.classList.remove("show");
-        }, 3000);
-      }
-
-      // Remove old export functions
-      function exportPrompts() {
-        showToast("Please use 'Download Open Prompts' for available prompts", "error");
-      }
-
-      function downloadAllPrompts() {
-        showToast("Full library is locked. Contact owner for access.", "error");
-      }
-
-      // Keep other functions the same...
-      function initializeSearch() {
-        const searchInput = document.getElementById("searchInput");
-        searchInput.addEventListener("input", performSearch);
-      }
-
-      function performSearch(event) {
-        const searchTerm = event.target.value.toLowerCase().trim();
-        const resultsContainer = document.getElementById("searchResults");
-
-        if (searchTerm.length < 2) {
-          resultsContainer.textContent = "";
-          clearSearchHighlights();
-          return;
-        }
-
-        // Search through actual prompt data
-        const searchResults = PROMPTS_DATA.prompts.filter(
-          (prompt) =>
-            prompt.title.toLowerCase().includes(searchTerm) ||
-            prompt.description.toLowerCase().includes(searchTerm) ||
-            prompt.tags.some((tag) => tag.toLowerCase().includes(searchTerm)) ||
-            prompt.minimal.toLowerCase().includes(searchTerm)
-        );
-
-        resultsContainer.textContent = `Found ${searchResults.length} prompts matching "${searchTerm}"`;
-
-        highlightSearchTerms(searchTerm);
-      }
-
-      function clearSearch() {
-        document.getElementById("searchInput").value = "";
-        document.getElementById("searchResults").textContent = "";
-        clearSearchHighlights();
-      }
-
-      function highlightSearchTerms(term) {
-        // Implementation for highlighting search terms in prompts
-        console.log(`Would highlight: ${term}`);
-      }
-
-      function clearSearchHighlights() {
-        // Implementation for clearing search highlights
-        console.log("Clearing search highlights");
-      }
-
-      function updateSearchIndex(batchNum, prompts) {
-        const batchPrompts = PROMPTS_DATA.prompts.filter(
-          (prompt) => prompt.batch === batchNum
-        );
-        batchPrompts.forEach((prompt) => {
-          searchIndex.push({
-            id: prompt.id,
-            text: `${prompt.title} ${prompt.description} ${prompt.tags.join(
-              " "
-            )} ${prompt.minimal}`.toLowerCase(),
-            batch: batchNum,
-          });
-        });
-      }
-
-      function copyPromptToClipboard(prompt, promptNumber) {
-        navigator.clipboard
-          .writeText(prompt)
-          .then(() => {
-            showToast(`Prompt #${promptNumber} copied to clipboard!`);
-          })
-          .catch(() => {
-            showToast("Failed to copy prompt. Please try again.");
-          });
-      }
-
-      function updateFrameworkStats() {
-        // Update any dynamic statistics
-        console.log("Framework stats updated");
-      }
-
-      function setupSmoothScrolling() {
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute("href"));
-            if (target) {
-              target.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }
-          });
-        });
-      }
-    </script>
-  </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+<script src="ael_prompts_library.js"></script>
+</body>
 </html>
