@@ -352,7 +352,7 @@ function downloadAllPrompts() { showToast("Full library is locked. Contact owner
 
 function initializeSearch() {
   const searchInput = document.getElementById("searchInput");
-  searchInput.addEventListener("input", performSearch);
+  if (searchInput) searchInput.addEventListener("input", performSearch);
 }
 
 function performSearch(event) {
@@ -397,11 +397,30 @@ function copyPromptToClipboard(prompt, promptNumber) {
 function updateFrameworkStats() {}
 
 function setupSmoothScrolling() {
+  const tabMap = {
+    'features': 'features',
+    'library': 'library',
+    'search': 'library',
+    'download': 'export'
+  };
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) { target.scrollIntoView({behavior: "smooth",block: "start"}); }
+      const hash = this.getAttribute("href").slice(1);
+      if (tabMap[hash]) {
+        const tabBtn = document.querySelector(`.doc-tab[data-tab="${tabMap[hash]}"]`);
+        if (tabBtn) {
+          document.querySelectorAll('.doc-tab').forEach(b => b.classList.remove('active'));
+          tabBtn.classList.add('active');
+          document.querySelectorAll('.doc-pane').forEach(p => p.classList.remove('active'));
+          const pane = document.getElementById(`pane-${tabMap[hash]}`);
+          if (pane) pane.classList.add('active');
+        }
+      }
+      const target = document.getElementById(hash);
+      if (target) {
+        setTimeout(() => target.scrollIntoView({behavior: "smooth", block: "start"}), 100);
+      }
     });
   });
 }
