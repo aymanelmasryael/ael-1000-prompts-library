@@ -72,11 +72,8 @@ The built-in generation engine dynamically creates new prompts by combining role
 
 ```
 ael-1000-prompts-library/
-├── index.html                     # HTML5 semantic structure
-├── css/
-│   └── style.css                  # All styles (glassmorphism, dark theme)
-├── js/
-│   └── script.js                  # Full JS engine (prompts, search, generation, export)
+├── index.html                     # HTML5 semantic structure (all-in-one)
+├── ael_prompts_library.js         # Full JS engine (prompts, search, generation, export)
 ├── screenshot.svg                 # Project preview image
 ├── .gitignore
 └── README.md
